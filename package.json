@@ -1,12 +1,19 @@
 {
   "name": "@fullhex/utils-js",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Common Javascript utilities used across Full Hex projects.",
-  "main": "./src/index.js",
   "type": "module",
+  "source": "src/index.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"Done!\""
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
   "repository": {
     "type": "git",
@@ -20,12 +27,16 @@
   "homepage": "https://github.com/fullhexventures/utils-js",
   "dependencies": {
     "axios": "^0.24.0",
+    "http-status": "^1.7.4",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.43",
     "querystring": "^0.2.1",
-    "uuid": "^8.3.2",
     "utm": "^1.1.1",
+    "uuid": "^8.3.2",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1"
   }
 }

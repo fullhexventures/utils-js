@@ -1,5 +1,3 @@
-import logger from '../config/logger';
-
 /**
  * setIntervalBalanced
  *
@@ -8,8 +6,7 @@ import logger from '../config/logger';
  */
 const setIntervalBalanced = async (fn, frequencyMs) => {
     if (typeof fn !== 'function') {
-        logger.error(`Attempted to set an interval callback ${fn} that is not a function!`);
-        return;
+        throw new Error(`Attempted to set an interval callback ${fn} that is not a function!`);
     }
 
     // Compute a random offset for the interval based on the frequency
@@ -45,4 +42,6 @@ const setIntervalBalanced = async (fn, frequencyMs) => {
     return intervalPromise;
 };
 
-export default setIntervalBalanced;
+export {
+    setIntervalBalanced
+};
