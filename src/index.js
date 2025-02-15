@@ -37,3 +37,10 @@ export {
     isNonEmptyString,
     isPositiveInteger
 };
+
+import {
+    getTimeAgoString
+} from './timeUtils';
+export {
+    getTimeAgoString
+};
